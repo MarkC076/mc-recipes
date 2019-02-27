@@ -11,15 +11,15 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
-    "deploy": "gatsby build --prefix-paths && s3-deploy './public/**' --cwd './public/' --bucket recipes.mschilton.com  --deleteRemoved --gzip && npm run clear",
+    "deploy": "gatsby-plugin-s3 deploy && npm run clear",
     "clear": "aws-cloudfront-invalidate E3J46NCAAJ0LWD"
   },
   "dependencies": {
     "aws-cloudfront-invalidate": "^0.1.3",
     "gatsby": "^2.1.18",
+    "gatsby-plugin-s3": "^0.2.4",
     "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "s3-deploy": "^1.3.0"
+    "react-dom": "^16.8.3"
   },
   "devDependencies": {
     "prettier": "^1.16.4"
