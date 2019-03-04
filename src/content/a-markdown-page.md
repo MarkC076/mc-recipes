@@ -1,7 +1,11 @@
 ---
 layout: page
-title: "Example Markdown page"
+title: 'Example Markdown page'
+author: 'Mark Chilton'
+ingredients: 'lota of stuff here'
 ---
+
+<div class="tip" markdown="1">Have **fun!**</div>
 
 Now we're writing in Markdown! Pretty nice, huh?
 

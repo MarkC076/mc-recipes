@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 
-import Page from '../components/Page'
-import Container from '../components/Container'
-import IndexLayout from '../layouts'
+import Page from '../components/page/page'
+import Container from '../components/container/container'
+import IndexLayout from '../components/layout/layout'
 
 const PageTwo = () => (
   <IndexLayout>
