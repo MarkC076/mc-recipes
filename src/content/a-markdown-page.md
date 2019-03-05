@@ -1,14 +1,27 @@
 ---
-layout: page
-title: 'Example Markdown page'
-author: 'Mark Chilton'
-ingredients: 'lota of stuff here'
+slug: bake-off-2017
+title: Bake Off 2017
+metaDescription: >-
+  After a little inspiration from GBBO and a small talk over lunch, my
+  colleagues and I at ITC organised ourselves our own little charity event to
+  raise money for British Heart Foundation.
+date: '2017-11-10'
+tileContent: >-
+  After a little inspiration from GBBO and a small talk over lunch, my
+  colleagues and I at ITC organised ourselves our own little charity event to
+  raise money for British Heart Foundation. With 14 bakers, many tasters and an
+  ounce of competition (that some may say was fixed), we managed to raise
+  £226.42 over 3 days for the amazing cause.
+thumbnail: /assets/rainbow-cake.jpg
+image: /assets/choco-malt-cake.jpg
 ---
 
-<div class="tip" markdown="1">Have **fun!**</div>
+After a little inspiration from GBBO and a small talk over lunch, my colleagues and I at ITC organised ourselves our own little charity event to raise money for British Heart Foundation.
 
-Now we're writing in Markdown! Pretty nice, huh?
+With 14 bakers, many tasters and an ounce of competition (that some may say was fixed), we managed to raise £226.42 over 3 days for the amazing cause.
 
-This starter has out-of-the-box support for basic Markdown rendering. The `content/` directory is where you put all of your Markdown content in. Gatsby will build your pages out of it. Gatsby will also follow the directory structure of your files too, so when you store a page at e.g. `content/projects/large-hadron-collider.md`, it will be built in `/projects/large-hadron-collider/`.
+I think the whole office ‘felt sick’ for 3 days, as quoted by many. Nevertheless, it was lots of fun and nice to see the whole office getting involved.
 
-[That's cool! Okay, take me back home.](/)
+I have no doubt that there will be another next year, with many wanting to take the title off Big Boss Stuart!
+
+Thanks again team!
