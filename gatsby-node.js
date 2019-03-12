@@ -19,7 +19,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       let slug = permalink
 
       if (!slug) {
-        slug = `/${relativePath.replace('.md', '')}/`
+        slug = `/recipe/${relativePath.replace('.md', '')}/`
       }
 
       // Used to generate URL to view this content.
@@ -55,7 +55,7 @@ exports.createPages = async ({ graphql, actions }) => {
               frontmatter {
                 title
                 date(formatString: "MMMM DD, YYYY")
-                tileContent
+                ingredients
                 thumbnail
                 slug
               }

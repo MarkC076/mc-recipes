@@ -28,6 +28,8 @@ interface IRecipeTemplateProps {
 class RecipeTemplate extends React.Component<IRecipeTemplateProps, {}> {
   render() {
     const recipe = this.props.data.recipe
+
+    console.log(recipe)
     return (
       <IndexLayout>
         <Page>
@@ -38,7 +40,15 @@ class RecipeTemplate extends React.Component<IRecipeTemplateProps, {}> {
                 <img src={recipe.frontmatter.image} alt={recipe.frontmatter.title} />
               </div>
               <div>
-                <p>{recipe.frontmatter.date}</p>
+                <h3>Ingredients</h3>
+                <ul>
+                  {recipe.frontmatter.ingredients.map(ingredient => (
+                    <li key={ingredient}>{ingredient}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3>Method</h3>
                 <div dangerouslySetInnerHTML={{ __html: recipe.html }} />
               </div>
             </div>
@@ -69,6 +79,7 @@ export const query = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         metaDescription
+        ingredients
         image
       }
     }

@@ -1,7 +1,7 @@
 /* tslint:disable:max-line-length */
 
 export const colors = {
-  brand: '#663399',
+  brand: '#cccccc',
   lilac: '#9d7cbf',
   accent: '#ffb238',
   success: '#37b635',
