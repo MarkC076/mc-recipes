@@ -1,6 +1,7 @@
 'use strict'
 
 const path = require('path')
+const _ = require('lodash')
 const createPaginatedPages = require('gatsby-paginate')
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -42,6 +43,9 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
+  const recipeTemplate = path.resolve('src/templates/recipeTemplate.js')
+  const tagTemplate = path.resolve('src/templates/tagTemplate.js')
+
   return new Promise((resolve, reject) => {
     graphql(`
       {
@@ -58,6 +62,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 ingredients
                 thumbnail
                 slug
+                tags
               }
             }
           }
@@ -67,18 +72,26 @@ exports.createPages = async ({ graphql, actions }) => {
       if (result.errors) {
         return Promise.reject(result.errors)
       }
-      createPaginatedPages({
-        edges: result.data.recipes.edges,
-        createPage: createPage,
-        pageTemplate: 'src/templates/recipesPage.tsx',
-        pageLength: 5, // This is optional and defaults to 10 if not used
-        pathPrefix: '', // This is optional and defaults to an empty string if not used
-        context: {} // This is optional and defaults to an empty object if not used
+
+      // Create blog-list pages
+      const recipeEdges = result.data.recipes.edges
+      const recipesPerPage = 2
+      const numPages = Math.ceil(recipeEdges.length / recipesPerPage)
+      Array.from({ length: numPages }).forEach((_, i) => {
+        createPage({
+          path: i === 0 ? `/recipes` : `/recipes/${i + 1}`,
+          component: path.resolve('./src/templates/recipesListPage.tsx'),
+          context: {
+            limit: recipesPerPage,
+            skip: i * recipesPerPage
+          }
+        })
       })
 
-      result.data.recipes.edges.forEach(({ node }) => {
-        const { slug, layout } = node.fields
+      const recipes = result.data.recipes
 
+      recipes.edges.forEach(({ node }) => {
+        const { slug, layout } = node.fields
         createPage({
           path: slug,
           // This will automatically resolve the template to a corresponding
@@ -94,6 +107,28 @@ exports.createPages = async ({ graphql, actions }) => {
           context: {
             // Data passed to context is available in page queries as GraphQL variables.
             slug
+          }
+        })
+      })
+
+      // Tag pages:
+      let tags = []
+      // Iterate through each post, putting all found tags into `tags`
+      recipes.edges.forEach((item, index) => {
+        if (_.get(item, 'node.frontmatter.tags')) {
+          tags = tags.concat(item.node.frontmatter.tags)
+        }
+      })
+
+      // Eliminate duplicate tags
+      tags = _.uniq(tags)
+
+      tags.forEach(tag => {
+        createPage({
+          path: `/tags/${_.kebabCase(tag)}/`,
+          component: path.resolve(`./src/templates/tagTemplate.tsx`),
+          context: {
+            tag
           }
         })
       })

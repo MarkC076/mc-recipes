@@ -3,14 +3,10 @@ import { Link } from 'gatsby'
 
 import StyledHeader from './header.css'
 
-interface IHeaderProps {
-  title: string
-}
-
-const Header = ({ title }: IHeaderProps) => (
+const Header = () => (
   <StyledHeader>
     <div className="HeaderInner">
-      <Link to="/">{title}</Link>
+      <Link to="/">Recipe Dev</Link>
     </div>
   </StyledHeader>
 )

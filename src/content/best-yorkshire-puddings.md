@@ -1,9 +1,10 @@
 ---
 slug: best-yorkshire-puddings
 title: Best Yorkshire puddings
-metaDescription: >-
+description: >-
   Best Yorkshire puddings
 date: '2017-11-10'
+tags: ["British", "Traditional", "Vegetarian"]
 ingredients: [
   "140g plain flour (this is about 200ml/7fl oz)",
   "4 eggs",

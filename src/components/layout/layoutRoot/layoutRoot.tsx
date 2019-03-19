@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Global, css } from '@emotion/core'
-import normalize from '../../../styles/normalize'
+import global from '../../../styles/global'
 
 import StyledLayoutRoot from './layoutRoot.css'
 
@@ -10,7 +10,7 @@ interface ILayoutRootProps {
 
 const LayoutRoot = ({ children }: ILayoutRootProps) => (
   <>
-    <Global styles={() => css(normalize)} />
+    <Global styles={() => css(global)} />
     <StyledLayoutRoot>{children}</StyledLayoutRoot>
   </>
 )

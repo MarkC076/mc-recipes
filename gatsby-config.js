@@ -3,13 +3,11 @@
 module.exports = {
   siteMetadata: {
     title: 'Recipe Website',
+    titleTemplate: 'Recipe Template',
     description: 'A gatsby development test featuring recipes.',
-    siteUrl: 'https://recipes.mschilton.com',
-    author: {
-      name: '',
-      url: '',
-      email: ''
-    }
+    url: 'https://recipes.mschilton.com',
+    image: '',
+    twitterUsername: ''
   },
   plugins: [
     {

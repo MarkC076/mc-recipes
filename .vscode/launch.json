@@ -1,0 +1,31 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Gatsby develop",
+      "type": "node",
+      "request": "launch",
+      "protocol": "inspector",
+      "program": "D:/Dev/mc-recipes/recipes.mschilton.com/node_modules/gatsby/dist/bin/gatsby",
+      "args": ["develop"],
+      "stopOnEntry": false,
+      "runtimeArgs": ["--nolazy"],
+      "sourceMaps": false,
+      "localRoot": "${workspaceRoot}",
+      "remoteRoot": "${workspaceRoot}"
+    },
+    {
+      "name": "Gatsby build",
+      "type": "node",
+      "request": "launch",
+      "protocol": "inspector",
+      "program": "D:/Dev/mc-recipes/recipes.mschilton.com/node_modules/gatsby/dist/bin/gatsby",
+      "args": ["build"],
+      "stopOnEntry": false,
+      "runtimeArgs": ["--nolazy"],
+      "sourceMaps": false,
+      "localRoot": "${workspaceRoot}",
+      "remoteRoot": "${workspaceRoot}"
+    }
+  ]
+}
